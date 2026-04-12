@@ -48,16 +48,42 @@
         <div class="inner-div clock-date">
 
         </div>
+
+        <div
+            class="ampm-label hidden"
+            id="amPm"
+        ></div>
     </div>
 
     <script>
+        let use24HourClock = true;
+        const hoursElement = document.getElementById('hours');
+        const minutesElement = document.getElementById('minutes');
+        const amPmElement = document.getElementById('amPm');
+
         function updateClock() {
             const date = new Date();
-            let hours = date.getHours().toString().padStart(2, '0');
-            let minutes = date.getMinutes().toString().padStart(2, '0');
+            let hours = date.getHours();
+            let suffix = '';
 
-            document.getElementById('hours').textContent = hours;
-            document.getElementById('minutes').textContent = minutes;
+            if (!use24HourClock) {
+                suffix = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12 || 12;
+            }
+
+            const minutes = date.getMinutes().toString().padStart(2, '0');
+
+            const formattedHours = use24HourClock
+                ? hours.toString().padStart(2, '0')
+                : hours.toString();
+
+            hoursElement.textContent = formattedHours;
+            minutesElement.textContent = minutes;
+
+            if (amPmElement) {
+                amPmElement.textContent = suffix;
+                amPmElement.classList.toggle('hidden', use24HourClock);
+            }
         }
 
         function blinkColon() {
@@ -77,6 +103,19 @@
 
     <script>
         function onHomeyReady(Homey) {
+            function applyClockPreference() {
+                const settings = typeof Homey.getSettings === 'function' ? Homey.getSettings() : {};
+                const settingValue = settings?.use24HourClock;
+                use24HourClock = settingValue !== false;
+                updateClock();
+            }
+
+            applyClockPreference();
+
+            if (typeof Homey.on === 'function') {
+                Homey.on('settings.set', applyClockPreference);
+            }
+
             function formatDate() {
                 const now = new Date();
                 const daysOfWeek = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"].map(day => Homey.__(`days_of_week_short.${day}`)).map(day => day.toUpperCase());

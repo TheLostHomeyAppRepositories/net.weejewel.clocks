@@ -4,5 +4,14 @@
   },
   "height": 160,
   "transparent": true,
-  "settings": []
+  "settings": [
+    {
+      "id": "use24HourClock",
+      "type": "checkbox",
+      "value": true,
+      "title": {
+        "en": "Use 24-hour clock"
+      }
+    }
+  ]
 }

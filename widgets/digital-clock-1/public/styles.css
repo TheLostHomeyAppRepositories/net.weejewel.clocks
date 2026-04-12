@@ -12,15 +12,16 @@ body {
     color: #1C1C1C;
     max-width: 450px;
     margin: auto;
-    -webkit-user-select: none; 
+    -webkit-user-select: none;
     user-select: none;
     cursor: default;
 }
 
-.selectable{
-  -webkit-user-select: auto; /* Safari */
-  user-select: auto;
-  cursor: auto;
+.selectable {
+    -webkit-user-select: auto;
+    /* Safari */
+    user-select: auto;
+    cursor: auto;
 }
 
 .back-banner {
@@ -32,33 +33,38 @@ body {
     position: relative;
     border-radius: 10px;
     overflow: hidden;
-    
+
     display: flex;
     align-items: stretch;
     justify-content: space-between;
-    gap: 16px; /* Creates a 20px gap between the two inner divs */
+    gap: 16px;
+    /* Creates a 20px gap between the two inner divs */
 }
 
 .inner-div {
     flex: 1;
     background-color: #1F2029;
     border-radius: 10px;
-    overflow:hidden;
-  
+    overflow: hidden;
+
     display: flex;
-    justify-content: center;  /* Centers horizontally */
-    align-items: center;      /* Centers vertically */
+    justify-content: center;
+    /* Centers horizontally */
+    align-items: center;
+    /* Centers vertically */
 }
 
 .clock-date {
     flex: 1;
     background-color: #1F2029;
     border-radius: 10px;
-    overflow:hidden;
-  
+    overflow: hidden;
+
     display: flex;
-    justify-content: center;  /* Centers horizontally */
-    align-items: center;      /* Centers vertically */
+    justify-content: center;
+    /* Centers horizontally */
+    align-items: center;
+    /* Centers vertically */
     font-size: 30px;
     text-align: center;
 }
@@ -67,25 +73,34 @@ body {
 
 
 .clock-test {
-   font-size: 120px;
-   /* font-weight: 600; */
-   line-height: 120px;
-   font-family: system-ui, sans-serif;
-   font-variation-settings: "wght" 100, "wdth" 40;
-   background-color: none;
-   overflow: hidden;
+    font-size: 120px;
+    /* font-weight: 600; */
+    line-height: 120px;
+    font-family: system-ui, sans-serif;
+    font-variation-settings: "wght" 100, "wdth" 40;
+    background-color: none;
+    overflow: hidden;
 }
 
- .colon {
+.colon {
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
     padding-bottom: 0px;
     margin-top: -40px;
     display: inline-block;
-    background-color:none;
+    background-color: none;
     height: 120px;
     overflow: hidden;
-    
+
+}
+
+.ampm-label {
+    position: absolute;
+    z-index: 999;
+    left: 5px;
+    top: 5px;
+    color: white;
+    font-size: 11px;
 }
 
 
@@ -98,11 +113,11 @@ body {
 
 
 .widget-title {
-   font-size: 20px;
-   font-weight: 600;
-   line-height: 24px;
-   color: #1C1C1C;
-   margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    color: #1C1C1C;
+    margin-bottom: 10px;
 }
 
 
@@ -110,8 +125,8 @@ body {
     position: absolute;
     bottom: -44px;
     right: 14px;
-    background-color: rgba(255,255,255,0.3);
-    box-shadow: 0 4px 17px 0 rgba(0,0,0,0.04), 0 2px 5px 0 rgba(0,0,0,0.05), 0 2px 2px 0 rgba(0,0,0,0.02);
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 17px 0 rgba(0, 0, 0, 0.04), 0 2px 5px 0 rgba(0, 0, 0, 0.05), 0 2px 2px 0 rgba(0, 0, 0, 0.02);
     color: white;
     border: none;
     border-radius: 50%;
@@ -124,22 +139,30 @@ body {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
+
 .refresh-button:hover {
-    background-color: rgba(255,255,255,0.4);
+    background-color: rgba(255, 255, 255, 0.4);
 }
+
 .back-banner:hover .refresh-button {
     bottom: 14px;
 }
+
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 
 
 
 
-.info-banner{
+.info-banner {
     width: 100%;
     height: auto;
     box-sizing: border-box;
@@ -166,10 +189,13 @@ body {
 
 
 /* @media (prefers-color-scheme: dark) { */
-  body {
+body {
     background-color: #111218;
     color: white;
-  }
-  .widget-title {color: white;}
+}
+
+.widget-title {
+    color: white;
+}
 
 /* } */
