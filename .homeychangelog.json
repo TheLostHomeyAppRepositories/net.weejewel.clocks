@@ -31,5 +31,8 @@
   },
   "1.3.0": {
     "en": "Added translations for Digital Clock"
+  },
+  "1.4.0": {
+    "en": "Added AM/PM support for the digital clock."
   }
 }
